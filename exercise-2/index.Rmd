@@ -1,0 +1,21 @@
+---
+title: "Exercise 2"
+output: html_document
+----
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+library(plotly)
+players <- c("Steph", "Westbrook", "KD", "Kawhi", "AD")
+points <- c(25, 40, 30, 34, 45)
+FG <- c(63, 34, 55, 50, 75)
+nba <- data.frame(players, points, FG)
+plot_ly(nba, x = ~points, y = ~FG, type = 'scatter',
+       text = ~players, textposition = 'middle right',
+        textfont = list(color = '#000000', size = 16)) %>%
+  layout(title = 'Points vs FG%',
+         xaxis = list(title = 'Points (PTS)',
+                      zeroline = TRUE,
+                      range = c(0, 100)),
+         yaxis = list(title = 'FG% (FG%)',
+                      range = c(0,100)))
+
+```
